@@ -33,4 +33,6 @@ public class TradeController {
         return tradeRepository.save(trades);
     }
 
+
+
 }
