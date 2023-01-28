@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  trdprocess:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nageshvr/tradeprocess:latest
+    ports:
+      - 127.0.1.1:8088:8080
+    environment:
+      - spring_data_mongodb_authentication_database=admin
+      - spring_data_mongodb_username=mongouser
+      - spring_data_mongodb_password=mongopassword
+      - spring_data_mongodb_database=transactions
+      - spring_data_mongodb_port=32000
+      - spring_data_mongodb_host= 192.168.49.2
+      - spring.cloud.kubernetes.config.enable-api=false
+networks:
+  default :
+    external :
+      name : minikube
+
+

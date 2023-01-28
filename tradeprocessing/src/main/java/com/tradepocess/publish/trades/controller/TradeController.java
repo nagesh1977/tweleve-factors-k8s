@@ -18,8 +18,11 @@ import java.util.List;
 public class TradeController {
     private final Logger LOG = LogManager.getLogger(getClass());
 
-    @Autowired
-    private TradeRepository tradeRepository;
+    private final TradeRepository tradeRepository;
+
+    public TradeController(TradeRepository tradeRepository) {
+        this.tradeRepository = tradeRepository;
+    }
 
     @RequestMapping(value = "/trades", method = RequestMethod.GET)
     public List<Trades> getAllTrades() {
